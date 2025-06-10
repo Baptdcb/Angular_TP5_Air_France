@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
-import { FiltresComponent } from '../filtres/filtres.component';
-import { ListeVolsComponent } from '../liste-vols/liste-vols.component';
-import { ListePassagersComponent } from '../liste-passagers/liste-passagers.component';
+import { IFiltres } from '../../models/filtres.model';
+import { FiltresComponent } from "../filtres/filtres.component";
+import { ListeVolsComponent } from "../liste-vols/liste-vols.component";
+import { ListePassagersComponent } from "../liste-passagers/liste-passagers.component";
 
 @Component({
-    selector: 'app-view-airfrance',
-    imports: [FiltresComponent, ListeVolsComponent, ListePassagersComponent],
-    templateUrl: './view-airfrance.component.html',
-    styleUrls: ['./view-airfrance.component.scss']
+  selector: 'app-view-airfrance',
+  templateUrl: './view-airfrance.component.html',
+  styleUrls: ['./view-airfrance.component.scss'],
+  imports: [FiltresComponent, ListeVolsComponent, ListePassagersComponent]
 })
 export class ViewAirFranceComponent {
+  filtres?: IFiltres;
 
+  onFiltresChange(filtres: IFiltres): void {
+    this.filtres = filtres;
+    console.log('Filtres appliqués :', filtres);
+  }
 }

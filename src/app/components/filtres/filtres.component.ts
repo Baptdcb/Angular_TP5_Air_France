@@ -1,4 +1,4 @@
-import { Component, LOCALE_ID, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, LOCALE_ID, Output, ViewEncapsulation } from '@angular/core';
 import { MAT_DATE_RANGE_SELECTION_STRATEGY } from '@angular/material/datepicker';
 import { AEROPORTS } from './../../constants/aeroport.constant';
 import {MatInputModule} from '@angular/material/input';
@@ -12,7 +12,7 @@ import {MatCommonModule} from '@angular/material/core';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import { IFiltres } from '../../models/filtres.model';
 
 @Component({
     selector: 'app-filtres',
@@ -33,10 +33,30 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class FiltresComponent {
 
-  /**
-   * La liste des aéroports disponibles est une constante,
-   * on n'utilise que les principaux aéroports français pour l'instant
-   */
+  @Output() filtresChange = new EventEmitter<IFiltres>();
+
   aeroports: IAeroport[] = AEROPORTS;
-  
+  selectedAeroport?: IAeroport;
+  debut?: Date;
+  fin?: Date;
+
+  /**
+   * Vérifie si tous les champs sont remplis pour activer le bouton "Appliquer"
+   */
+  get isApplyButtonDisabled(): boolean {
+    return !this.selectedAeroport || !this.debut || !this.fin;
+  }
+
+  /**
+   * Émet les filtres sélectionnés au composant parent
+   */
+  applyFilters(): void {
+    if (this.selectedAeroport && this.debut && this.fin) {
+      this.filtresChange.emit({
+        aeroport: this.selectedAeroport,
+        debut: this.debut,
+        fin: this.fin,
+      });
+    }
+  }
 }
