@@ -1,24 +1,25 @@
 import { Component, EventEmitter, LOCALE_ID, Output, ViewEncapsulation } from '@angular/core';
+import { IFiltres } from '../../models/filtres.model';
 import { MAT_DATE_RANGE_SELECTION_STRATEGY } from '@angular/material/datepicker';
 import { AEROPORTS } from './../../constants/aeroport.constant';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { IAeroport } from '../../models/aeroport.model';
 import { ThreeDayRangeSelectionStrategy } from '../../date-adapter';
 import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
-import {MatCommonModule} from '@angular/material/core';
+import { MatCommonModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { IFiltres } from '../../models/filtres.model';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
     selector: 'app-filtres',
     templateUrl: './filtres.component.html',
-    styleUrls: ['./filtres.component.scss'],
-    imports: [MatIconModule, MatButtonModule, MatInputModule,
+    imports: [MatIconModule, MatButtonModule, MatInputModule, FormsModule,
         MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatCommonModule, CommonModule],
     providers: [
         provideNativeDateAdapter(),
@@ -33,30 +34,30 @@ import { IFiltres } from '../../models/filtres.model';
 })
 export class FiltresComponent {
 
-  @Output() filtresChange = new EventEmitter<IFiltres>();
+    /**
+     * La liste des aéroports disponibles est une constante,
+     * on n'utilise que les principaux aéroports français pour l'instant
+     */
+    aeroports: IAeroport[] = AEROPORTS;
 
-  aeroports: IAeroport[] = AEROPORTS;
-  selectedAeroport?: IAeroport;
-  debut?: Date;
-  fin?: Date;
+    selectedAirport!: IAeroport
+    startDate!: Date
+    endDate!: Date
 
-  /**
-   * Vérifie si tous les champs sont remplis pour activer le bouton "Appliquer"
-   */
-  get isApplyButtonDisabled(): boolean {
-    return !this.selectedAeroport || !this.debut || !this.fin;
-  }
-
-  /**
-   * Émet les filtres sélectionnés au composant parent
-   */
-  applyFilters(): void {
-    if (this.selectedAeroport && this.debut && this.fin) {
-      this.filtresChange.emit({
-        aeroport: this.selectedAeroport,
-        debut: this.debut,
-        fin: this.fin,
-      });
+    get isDisabled() {
+        return !this.selectedAirport || !this.startDate || !this.endDate
     }
-  }
+
+    @Output() emitter = new EventEmitter<IFiltres>();
+
+    applyFilters = () => {
+        const filters: IFiltres = {
+            aeroport: this.selectedAirport,
+            debut: this.startDate,
+            fin: this.endDate
+        }
+
+        this.emitter.emit(filters)
+    }
+
 }
