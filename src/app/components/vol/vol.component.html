@@ -1,1 +1,16 @@
-<!-- Affichage d'un vol -->
+<div class="vol">
+    <div class="vol-description">
+        <p class="vol-icao-code">{{ vol.icao }}</p>
+        <p class="vol-matricule">{{ vol.matricule }}</p>
+        <div class="vol-aeroport">
+            <p class="vol-depart">{{ vol.aeroportDepart }}</p>
+            <div class="icon">
+                <mat-icon>arrow_right_alt</mat-icon>
+            </div>
+            <p class="vol-arrivee">{{ vol.aeroportArrivee || "Inconnu"}}</p>
+            
+        </div>
+        <p class="vol-compagnie">{{ vol.compagnie }}</p>
+
+    </div>
+</div>

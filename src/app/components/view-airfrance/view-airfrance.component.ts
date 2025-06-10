@@ -4,6 +4,7 @@ import { VolService } from '../../services/vol.service'; // Import VolService
 import { FiltresComponent } from "../filtres/filtres.component";
 import { ListeVolsComponent } from "../liste-vols/liste-vols.component";
 import { ListePassagersComponent } from "../liste-passagers/liste-passagers.component";
+import { Vol } from '../../models/vol.model';
 
 @Component({
   selector: 'app-view-airfrance',
@@ -13,6 +14,7 @@ import { ListePassagersComponent } from "../liste-passagers/liste-passagers.comp
 })
 export class ViewAirFranceComponent {
   filtres?: IFiltres;
+  vols: Vol[] = []; 
 
   constructor(private volService: VolService) {} // Inject VolService
 
@@ -32,6 +34,7 @@ export class ViewAirFranceComponent {
 
     this.volService.getVolsDepart(aeroport.icao, debutSeconds, finSeconds).subscribe(vols => {
       console.log('Vols récupérés :', vols);
+      this.vols = vols;
     });
   }
 }
