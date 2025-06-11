@@ -36,6 +36,7 @@ export class Vol implements IVol {
   aeroportDepart: string;
   aeroportArrivee: string;
   passagers: IPassager[];
+  lienImage: string;
 
   constructor(dto: IVolDto) {
     this.icao = dto.icao24;
@@ -44,6 +45,7 @@ export class Vol implements IVol {
     this.aeroportDepart = dto.estDepartureAirport;
     this.aeroportArrivee = dto.estArrivalAirport;
     this.passagers = [];
+    this.lienImage = this.getCompagnieImage(this.compagnie)
   }
 
   getCompagnie(matricule: string): string {
@@ -56,4 +58,16 @@ export class Vol implements IVol {
 
     return compagnie;
   }
+
+  getCompagnieImage(compagnie: string): string {
+    if (compagnie === 'Transavia France') {
+      return 'assets/Transavia France.png';
+    } else if (compagnie === 'Air France') {  
+      return 'assets/Air France.png';
+    }else if (compagnie === 'Air France Hop') {
+      return 'assets/Air France Hop.png';
+    }else {
+      return '';
+    }
+}
 }

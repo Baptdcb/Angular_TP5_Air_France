@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { Vol } from '../../models/vol.model';
 
@@ -9,6 +9,15 @@ import { Vol } from '../../models/vol.model';
     styleUrls: ['./vol.component.scss']
 })
 export class VolComponent {
+
+    
     @Input() vol!: Vol
 
+    @Input() volType!: string;
+
+    @Output() emitter = new EventEmitter<Vol>();
+    
+    SelectionVol(){
+        this.emitter.emit(this.vol);
+    }
 }

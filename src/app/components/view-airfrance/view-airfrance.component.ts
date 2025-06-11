@@ -5,6 +5,7 @@ import { FiltresComponent } from "../filtres/filtres.component";
 import { ListeVolsComponent } from "../liste-vols/liste-vols.component";
 import { ListePassagersComponent } from "../liste-passagers/liste-passagers.component";
 import { Vol } from '../../models/vol.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-airfrance',
@@ -15,10 +16,16 @@ import { Vol } from '../../models/vol.model';
 export class ViewAirFranceComponent {
   filtres?: IFiltres;
   vols: Vol[] = []; 
+  volSelectionne?: Vol; 
 
-  constructor(private volService: VolService) {} // Inject VolService
+  volType: string ="";
+  
+  constructor(
+    private volService: VolService,
+    private activatedRoute: ActivatedRoute 
+  ) {} 
 
-  onFiltresChange(filtres: IFiltres): void {
+  ChangementDeFiltres(filtres: IFiltres): void {
     this.filtres = filtres;
     console.log('Filtres appliqués :', filtres);
 
@@ -32,9 +39,14 @@ export class ViewAirFranceComponent {
     const debutSeconds = Math.floor(debut.getTime() / 1000);
     const finSeconds = Math.floor(fin.getTime() / 1000);
 
-    this.volService.getVolsDepart(aeroport.icao, debutSeconds, finSeconds).subscribe(vols => {
+    this.volService.getVols(aeroport.icao, debutSeconds, finSeconds , "departure").subscribe(vols => {
       console.log('Vols récupérés :', vols);
       this.vols = vols;
     });
+  }
+
+  VolRecu(vol: Vol): void {
+    this.volSelectionne = vol;
+    
   }
 }

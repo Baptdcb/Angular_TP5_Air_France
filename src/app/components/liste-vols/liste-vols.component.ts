@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Vol } from '../../models/vol.model';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import { VolComponent } from "../vol/vol.component";
@@ -11,5 +11,11 @@ import { VolComponent } from "../vol/vol.component";
 })
 export class ListeVolsComponent {
     @Input() vols!: Vol[];
+    @Input() volType!: string;
 
+    @Output() emitter = new EventEmitter<Vol>();
+
+    EnvoyerVol(vol: Vol): void {
+        this.emitter.emit(vol);
+    }
 }

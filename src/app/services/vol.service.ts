@@ -15,10 +15,11 @@ export class VolService {
    * Open Sky REST API
    * https://openskynetwork.github.io/opensky-api/rest.html#departures-by-airport
    */
-  getVolsDepart(code: string, debut: number, fin: number): Observable<Vol[]> {
-    return this.http.get<any>(`https://opensky-network.org/api/flights/departure?airport=${code}&begin=${debut}&end=${fin}`).pipe(
-      map((response) => response
-        .map((dto: IVolDto) => new Vol(dto))
-    ));
-  }
+  getVols(code: string, debut: number, fin: number, type: "departure" | "arrival"): Observable<Vol[]> {
+		const link = `https://opensky-network.org/api/flights/${type}?airport=${code}&begin=${debut}&end=${fin}`
+		return this.http.get<any>(link).pipe(
+			map((response) => response
+				.map((dto: IVolDto) => new Vol(dto))
+			));
+	}
 }

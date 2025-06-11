@@ -1,10 +1,27 @@
 .vol-description {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    align-items: center; 
-    justify-items: start; 
+    grid-template-columns: repeat(5, 1fr); 
+    margin: 20px ; 
 }
 
 .vol-aeroport{
     display: flex;
+}
+
+.vol-logo {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.vol{
+    cursor: pointer;
+    padding: 2px;
+}
+.vol:hover {
+    background-color: #f0f0f0;
+
+}
+
+.vol:active{
+    background-color: #e0e0e0;
 }

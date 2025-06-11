@@ -1,5 +1,11 @@
-<div class="vol">
+<div class="vol" (click)="SelectionVol()">
     <div class="vol-description">
+        <div class="vol-icon-type">
+            <mat-icon class="vol-type-icon" >
+                {{volType === 'arrival' ? "flight_land" :
+                "flight_takeoff"}}
+            </mat-icon>
+        </div>
         <p class="vol-icao-code">{{ vol.icao }}</p>
         <p class="vol-matricule">{{ vol.matricule }}</p>
         <div class="vol-aeroport">
@@ -10,7 +16,7 @@
             <p class="vol-arrivee">{{ vol.aeroportArrivee || "Inconnu"}}</p>
             
         </div>
-        <p class="vol-compagnie">{{ vol.compagnie }}</p>
+        <img class="vol-logo" [src]="vol.lienImage">
 
     </div>
 </div>
