@@ -25,7 +25,7 @@ export class ViewAirFranceComponent {
     private activatedRoute: ActivatedRoute 
   ) {} 
 
-  ChangementDeFiltres(filtres: IFiltres): void {
+  changementDeFiltres(filtres: IFiltres): void {
     this.filtres = filtres;
     console.log('Filtres appliqués :', filtres);
 

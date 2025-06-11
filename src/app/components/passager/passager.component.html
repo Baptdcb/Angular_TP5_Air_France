@@ -1,1 +1,16 @@
-<!-- Affichage d'un passager -->
+<div class="passager" >
+    
+       <img  [src]="passager.image" [alt]="passager.nom" class="passager-image">
+        
+        <p class="passager-nom">{{ passager.nom }}</p>
+        
+        <p class="passager-classe">{{ passager.classeVol }}</p>
+        <div class="passager-baggages">
+            <mat-icon class="passager-bagage-icon">work</mat-icon>
+            <p class="passager-bagage-nombre">X{{ passager.nbBagagesSoute }}</p>
+
+        </div>
+
+       
+
+</div>

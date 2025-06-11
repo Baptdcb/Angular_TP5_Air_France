@@ -1,0 +1,12 @@
+.passager {
+    display: grid;
+    grid-template-columns: repeat(4, 150px); 
+    margin: 20px ; 
+    justify-content: center;
+    align-items: center;
+}
+
+.passager-baggages{
+    display: flex;
+    
+}

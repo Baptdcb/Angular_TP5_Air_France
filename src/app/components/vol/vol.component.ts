@@ -19,5 +19,6 @@ export class VolComponent {
     
     SelectionVol(){
         this.emitter.emit(this.vol);
+        
     }
 }
