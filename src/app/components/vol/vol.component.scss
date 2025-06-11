@@ -1,7 +1,10 @@
 .vol-description {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); 
+    grid-template-columns: repeat(5, 150px); 
     margin: 20px ; 
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .vol-aeroport{
