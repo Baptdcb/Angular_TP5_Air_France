@@ -1,6 +1,6 @@
 <div class="filtres-container">
-	<mat-form-field appearance="fill" >
-		<mat-label>Aéroports</mat-label>
+	<mat-form-field  appearance="outline">
+		<mat-label class="filtres-aeroport">Aéroports</mat-label>
 		<mat-select [(ngModel)]="selectedAirport">
 			<mat-option *ngFor="let aeroport of aeroports" [value]="aeroport">
 				{{ aeroport.ville + ' - ' + aeroport.nom }}
@@ -8,7 +8,7 @@
 		</mat-select>
 	</mat-form-field>
 
-	<mat-form-field appearance="fill" >
+	<mat-form-field class="filtres-date" appearance="outline" >
 		<mat-label>Dates</mat-label>
 		<mat-date-range-input [rangePicker]="picker">
 			<input matStartDate placeholder="Date de début" [(ngModel)]="startDate">

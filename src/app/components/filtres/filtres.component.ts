@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
     selector: 'app-filtres',
     templateUrl: './filtres.component.html',
+    styleUrls: ['./filtres.component.scss'],
     imports: [MatIconModule, MatButtonModule, MatInputModule, FormsModule,
         MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatCommonModule, CommonModule],
     providers: [

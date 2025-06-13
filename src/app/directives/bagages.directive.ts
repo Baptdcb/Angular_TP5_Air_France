@@ -18,10 +18,10 @@ export class BagagesDirective implements OnChanges {
     if((this.appClasseVol === 'STANDARD' && this.appBagages > 1) ||
        (this.appClasseVol === 'BUSINESS' && this.appBagages > 2) ||
        (this.appClasseVol === 'PREMIUM' && this.appBagages > 3)) {
-      color = '#ffcccc'; 
+      color = 'red'; 
     } 
     
-    this.renderer.setStyle(this.el.nativeElement, 'background-color', color);
+    this.renderer.setStyle(this.el.nativeElement, 'color', color);
 
   }
 }

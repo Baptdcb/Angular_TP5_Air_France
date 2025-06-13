@@ -2,15 +2,15 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr); 
     padding: 20px;
-    border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     align-items: center;
     justify-content: center;
-    background: rgb(232, 233, 253);
+    background-color: #0214524f;
+    border: 2px solid #ffffff33;
     font-size: 16px;
     font-weight: 500;
-    color: #333;
+    color: #ffffff;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -43,6 +43,6 @@
 }
 
 .vol-type-icon {
-    color: #007bff;
+    color: #020b42;
 }
 

@@ -16,13 +16,13 @@ export class ClasseVolDirective implements OnChanges {
     let color = 'black'; 
     switch (this.appClasseVol) {
       case 'STANDARD':
-        color = 'blue';
+        color = '#509dff'; 
         break;
       case 'BUSINESS':
-        color = 'red';
+        color = '#fa4f3b';
         break;
       case 'PREMIUM':
-        color = 'green';
+        color = '#35f76d';
         break;
     
     }
