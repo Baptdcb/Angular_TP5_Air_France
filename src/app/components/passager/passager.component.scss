@@ -1,13 +1,38 @@
 .passager {
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.passager-description {
     display: grid;
-    grid-template-columns: repeat(4, 150px); 
-    margin: 20px ; 
+    grid-template-columns: repeat(4, 1fr); 
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     align-items: center;
     justify-content: center;
+    background: rgb(232, 233, 253);
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    
+}
+
+
+img {
+    // width: 50px;
+    // height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 .passager-baggages{
     display: flex;
     justify-content: center;
+
+    width: 80px;
+    border-radius: 50px;
     
 }

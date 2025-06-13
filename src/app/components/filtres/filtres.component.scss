@@ -1,37 +1,41 @@
-
-
 .filtres-container {
-  height: calc(100% - 30px);
-  width: calc(100% - 30px);
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 15px;
-  padding: 20px; // Ajout de padding pour un meilleur espacement interne
-  border-radius: 8px; // Ajout de coins arrondis
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
-              0 1px 3px rgba(0, 0, 0, 0.08); // Réduction de l'intensité des ombres
-  background-color: #f9f9f9; // Couleur de fond légèrement grisée pour un contraste doux
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+  margin: 0 auto; /* Center the container horizontally */
+  background: linear-gradient(135deg, #0056b3, #0078d7);
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px; /* Set a maximum width for better responsiveness */
+}
 
-  mat-form-field {
-    width: 35%;
-    margin: 0 10px; // Ajout d'espacement horizontal entre les champs
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px; /* Add spacing between form fields */
+}
 
-    .mat-form-field-wrapper {
-      padding-bottom: 0px;
-    }
-  }
+button {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #004494, #0056b3);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.2s, transform 0.2s;
+}
 
-  .apply-button {
-    background-color: $accent;
-    color: white;
-    padding: 10px 20px; // Ajout de padding pour un bouton plus grand
-    border-radius: 4px; // Coins arrondis pour le bouton
-    font-weight: bold; // Texte en gras pour le bouton
-    transition: background-color 0.3s ease; // Animation de transition pour l'effet hover
+button:hover {
+  background-color: #003366;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
 
-    &:hover {
-      background-color: darken($accent, 10%); // Couleur légèrement plus foncée au survol
-    }
-  }
+button:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+  box-shadow: none;
 }

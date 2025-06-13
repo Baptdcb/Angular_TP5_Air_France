@@ -1,30 +1,48 @@
 .vol-description {
     display: grid;
-    grid-template-columns: repeat(5, 150px); 
-    margin: 20px ; 
+    grid-template-columns: repeat(5, 1fr); 
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     align-items: center;
     justify-content: center;
-    
+    background: rgb(232, 233, 253);
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.vol-aeroport{
+.vol-aeroport {
     display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .vol-logo {
-    width: 200px;
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
     margin-right: 10px;
 }
 
-.vol{
+.vol {
     cursor: pointer;
-    padding: 2px;
+    padding: 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
+
 .vol:hover {
-    background-color: #f0f0f0;
-
+    transform: scale(1.05);
 }
 
-.vol:active{
+.vol:active {
     background-color: #e0e0e0;
 }
+
+.vol-type-icon {
+    color: #007bff;
+}
+

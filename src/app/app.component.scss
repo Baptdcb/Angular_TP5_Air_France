@@ -5,12 +5,12 @@
     width: 100%;
   
     .toolbar {
-      box-shadow: 0 0 10px black;
+      box-shadow: 0 0 80px rgb(1, 6, 51);
       z-index: 2;
     }
   
     .routing {
-      height: calc(100% - 100px);
+      height: calc(100% - 140px);
     }
   }
   

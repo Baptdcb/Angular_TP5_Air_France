@@ -5,7 +5,7 @@
     <p>Matricule</p>
     <p>Destination</p>
     <p>Compagnie</p>
-
-</div>
-    <app-vol *ngFor="let vol of vols" [vol]="vol" [volType]="volType" (emitter)="EnvoyerVol($event)" ></app-vol>
   </div>
+  
+    <app-vol *ngFor="let vol of vols" [vol]="vol" [volType]="volType" (emitter)="EnvoyerVol($event)" ></app-vol>
+</div>
