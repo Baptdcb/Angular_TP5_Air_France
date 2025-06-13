@@ -3,22 +3,20 @@
 mat-toolbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   background: #021a69;
   height: 80px;
-  padding: 0 20px;
+  padding: 0;
 
   .logo {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the logo horizontally */
-    border-radius: 50px;
-    background-color: white;
+    background: linear-gradient(to right, #ffffff 40%, #0863f500);
     padding: 10px 20px;
+    width: 400px;
+    margin-right: 500px; 
 
     img {
       height: 60px;
-      margin-right: 10px;
     }
   }
 
@@ -30,9 +28,6 @@ mat-toolbar {
     border: none;
     margin: 20px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-
-
-   
   }
 
   button:hover {
