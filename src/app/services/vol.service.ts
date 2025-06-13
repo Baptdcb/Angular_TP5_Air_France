@@ -15,7 +15,7 @@ export class VolService {
    * Open Sky REST API
    * https://openskynetwork.github.io/opensky-api/rest.html#departures-by-airport
    */
-  getVols(code: string, debut: number, fin: number, type: "departure" | "arrival"): Observable<Vol[]> {
+  getVols(code: string, debut: number, fin: number, type: string): Observable<Vol[]> {
 		const link = `https://opensky-network.org/api/flights/${type}?airport=${code}&begin=${debut}&end=${fin}`
 		return this.http.get<any>(link).pipe(
 			map((response) => response

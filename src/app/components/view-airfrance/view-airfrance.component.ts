@@ -18,28 +18,37 @@ export class ViewAirFranceComponent {
   vols: Vol[] = []; 
   volSelectionne?: Vol; 
 
-  volType: string ="";
+  volType: string = this.activatedRoute.routeConfig?.path || '';
+  
   
   constructor(
     private volService: VolService,
     private activatedRoute: ActivatedRoute 
   ) {} 
 
+  consoleLog(){
+    console.log("Type de vol :", this.volType);
+  }
+
   changementDeFiltres(filtres: IFiltres): void {
     this.filtres = filtres;
-    console.log('Filtres appliqués :', filtres);
+    
 
     const { aeroport, debut, fin } = filtres;
 
-    console.log('Aéroport sélectionné :', aeroport);
-    console.log('Date de début :', debut);
-    console.log('Date de fin :', fin);
+    let volType = "" ;
+    if (this.volType === 'decollages') {
+      volType = 'departure';
+    }
+    else if (this.volType === 'atterrissages') {
+      volType = 'arrival';
+    }
 
-    // Convert dates to seconds and call the service
+
     const debutSeconds = Math.floor(debut.getTime() / 1000);
     const finSeconds = Math.floor(fin.getTime() / 1000);
 
-    this.volService.getVols(aeroport.icao, debutSeconds, finSeconds , "departure").subscribe(vols => {
+    this.volService.getVols(aeroport.icao, debutSeconds, finSeconds , volType).subscribe(vols => {
       console.log('Vols récupérés :', vols);
       this.vols = vols;
     });

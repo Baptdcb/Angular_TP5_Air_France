@@ -1,16 +1,17 @@
 <div class="container">
-  <div class="title"><h1>DECOLLAGES</h1></div>
+  <div class="title"><h1>{{ volType === 'decollages' ? 'DECOLLAGES' : 'ARRIVEES' }}</h1></div>
   <div class="sections">
     <div class="left">
       <div class="top">
         <app-filtres (emitter)="changementDeFiltres($event)"></app-filtres>
       </div>
       <div class="bottom">
-        <app-liste-vols [vols]="vols" (emitter)="VolRecu($event)"></app-liste-vols>
+        <app-liste-vols [vols]="vols" [volType]="volType" (emitter)="VolRecu($event)"></app-liste-vols>
       </div>
     </div>
     <div class="right">
       <app-liste-passagers [vol]="volSelectionne!"></app-liste-passagers>
     </div>
   </div>
+  <button (click)="consoleLog()">CONSOLE LOG</button>
 </div>

@@ -17,4 +17,8 @@ export class ToolbarComponent {
     this._router.navigateByUrl(`/decollages`);
   }
 
+  toAtterrissages(): void {
+    this._router.navigateByUrl(`/atterrissages`);
+  }
+
 }
