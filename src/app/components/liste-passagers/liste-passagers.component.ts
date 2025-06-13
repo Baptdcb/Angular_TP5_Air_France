@@ -27,7 +27,7 @@ export class ListePassagersComponent {
 
     ngOnChanges(): void {
         if (this.vol && this.vol.icao) {
-            this.passagerService.getPassengers(this.vol.icao).subscribe(passagers => {
+            this.passagerService.getPassagers(this.vol.icao).subscribe(passagers => {
                 this.passagers = passagers;
                 console.log('Liste des passagers:', this.passagers);
             });

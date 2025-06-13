@@ -4,7 +4,7 @@
         <img [src]="passager.image" [alt]="passager.nom" class="passager-image">
     </div>
 
-    <p class="passager-nom">{{ passager.nom }}</p>
+    <p class="passager-nom" matTooltip="{{ passager.email }}" >{{ passager.nom }}</p>
 
     <p class="passager-classe" [appClasseVol]="passager.classeVol">{{ passager.classeVol }}</p>
     <div class="passager-baggages" [ClasseVol]="passager.classeVol" [appBagages]="passager.nbBagagesSoute">

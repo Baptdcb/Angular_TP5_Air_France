@@ -26,9 +26,7 @@ export class ViewAirFranceComponent {
     private activatedRoute: ActivatedRoute 
   ) {} 
 
-  consoleLog(){
-    console.log("Type de vol :", this.volType);
-  }
+
 
   changementDeFiltres(filtres: IFiltres): void {
     this.filtres = filtres;
