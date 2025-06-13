@@ -12,7 +12,6 @@ export class VolComponent {
 
     
     @Input() vol!: Vol
-
     @Input() volType!: string;
 
     @Output() emitter = new EventEmitter<Vol>();

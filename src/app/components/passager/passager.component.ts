@@ -3,15 +3,17 @@ import { Passager } from '../../models/passager.model';
 import { MatIcon } from '@angular/material/icon';
 import { ClasseVolDirective } from '../../directives/classe-vol.directive';
 import { BagagesDirective } from '../../directives/bagages.directive';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-passager',
-    imports: [MatIcon, ClasseVolDirective, BagagesDirective],
+    imports: [MatIcon, ClasseVolDirective, BagagesDirective, CommonModule],
     templateUrl: './passager.component.html',
     styleUrls: ['./passager.component.scss']
 })
 export class PassagerComponent {
 
     @Input() passager!: Passager; 
+    @Input() afficherPhotos!: boolean ; 
 
 }

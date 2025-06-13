@@ -1,10 +1,15 @@
 <div class="liste-passagers">
+    <div class="options">
+        <mat-slide-toggle [(ngModel)]="afficherPhotos" (change)="envoiAfficchagePhotos($event)">Afficher les photos</mat-slide-toggle>
+    </div>
     <div class="titre-grille">
-        <p>Photo passager</p>
+        <div *ngIf="afficherPhotos">
+            <p>Photo passager</p>
+        </div>
         <p>Nom</p>
         <p>Classe</p>
         <p>Nombre de bagages</p>
     </div>
-    <app-passager *ngFor="let passager of passagers" [passager]="passager"></app-passager>
+    <app-passager *ngFor="let passager of passagers" [passager]="passager" [afficherPhotos]="afficherPhotos"></app-passager>
 </div>
 
