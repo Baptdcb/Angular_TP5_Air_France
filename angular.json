@@ -19,6 +19,7 @@
           "options": {
             "outputPath": "dist/angular-polytech-td5",
             "index": "src/index.html",
+            "baseHref": "/Angular_TP5_Air_France/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
